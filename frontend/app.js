@@ -1,4 +1,3 @@
-
 const contractABI = [
   [
     {
@@ -114,7 +113,6 @@ const contractABI = [
   ]
 ];
 
-// Replace with your deployed contract address
 const contractAddress = process.env.CONTRACT_ADDRESS;
 
 // DOM Elements
@@ -203,6 +201,7 @@ async function connectWallet(accountAddress = null) {
     console.log("Wallet connected:", account);
   } catch (error) {
     console.error("Error connecting wallet:", error);
+    alert("Failed to connect wallet. Please check the console for more details.");
   }
 }
 
@@ -289,7 +288,7 @@ async function submitFeedback() {
     submitFeedbackButton.innerHTML = 'Sending... <span class="spinner"></span>';
     
     // Call the contract function to add feedback
-    const tx = await feedbackContract.addFeedback(message);
+    const tx = await feedbackContract.sendFeedback(message);
     console.log("Transaction sent:", tx.hash);
     
     // Wait for the transaction to be mined

@@ -1,28 +1,26 @@
 require("@nomicfoundation/hardhat-toolbox");
-require('dotenv').config();
+require("dotenv").config();
+
+// Add these lines to debug
+console.log("QUICKNODE_URI:", process.env.QUICKNODE_URI);
+console.log("PRIVATE_KEY:", process.env.PRIVATE_KEY ? "Present" : "Missing");
 
 /** @type import('hardhat/config').HardhatUserConfig */
 const solc = require("solc");
 
 module.exports = {
-  solidity: {
-    version: "0.8.28", // Or another version you prefer
-    settings: {
-      optimizer: { enabled: true, runs: 200 },
-    },
-  },
+  solidity: "0.8.19",
   networks: {
     sepolia: {
       url: process.env.QUICKNODE_URI,
       accounts: [process.env.PRIVATE_KEY]
-    },
-  },
+    }
+  }
 };
 
-task("Accounts", "Prints the List of Accounts", async (taskArgs, hre) => {
+task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   const accounts = await hre.ethers.getSigners();
-  
   for (const account of accounts) {
     console.log(account.address);
   }
-})
+});
