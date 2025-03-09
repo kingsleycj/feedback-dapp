@@ -166,7 +166,7 @@ The vanilla JavaScript frontend:
 
 ### Live Link
 
-- 
+- [FeedBack DApp Link](https://feedback-dapp-rho.vercel.app/)
 
 ### Frontend Setup
 1. Create the following files:
