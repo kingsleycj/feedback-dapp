@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback DApp</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="mainContainer">
+    <div class="dataContainer">
+      <div class="header">
+          Feedback DApp
+      </div>
+      
+      <div class="bio">
+        Connect your Ethereum wallet and share your feedback!
+      </div>
+      
+      <div id="walletSection">
+        <button class="connectButton" id="connectWalletButton">
+          Connect Wallet
+        </button>
+      </div>
+      
+      <div id="feedbackSection" style="display: none;">
+        <div class="feedbackForm">
+          <textarea
+            id="feedbackText"
+            placeholder="Enter your feedback here..."
+            rows="4"
+          ></textarea>
+          <button class="submitButton" id="submitFeedbackButton">
+            Submit Feedback
+          </button>
+        </div>
+        
+        <div class="feedbackList">
+          <h2>Community Feedback</h2>
+          <div id="feedbackContainer"></div>
+          <p id="noFeedbackMessage" class="noFeedback">No feedback yet. Be the first to share!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
