@@ -140,8 +140,13 @@ async function submitFeedback() {
       return;
     }
 
+    if (!currentAccount) {
+      alert("No wallet connected. Please connect your wallet first.");
+      return;
+    }
+
     if (!feedbackContract) {
-      alert("Wallet not connected properly. Please try reconnecting.");
+      alert("Contract not initialized. Please try reconnecting.");
       return;
     }
 
@@ -160,11 +165,15 @@ async function submitFeedback() {
     submitFeedbackButton.textContent = "Submit Feedback";
   } catch (error) {
     console.error("Error submitting feedback:", error);
+    
+    // Display a more readable error message
+    alert("Failed to submit feedback. Please check your wallet and try again.");
+    
     submitFeedbackButton.disabled = false;
     submitFeedbackButton.textContent = "Submit Feedback";
-    alert("There was an error submitting your feedback. Please try again.");
   }
 }
+
 
 // Listen for contract events
 function setupContractEvents() {
