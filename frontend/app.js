@@ -1,7 +1,3 @@
-// Ensure Ethers.js is available
-if (typeof ethers === "undefined") {
-  console.error("Ethers.js not found! Please include it in your HTML or install via npm.");
-}
 
 // Smart contract details
 const contractABI = [
